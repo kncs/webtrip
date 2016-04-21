@@ -1,14 +1,25 @@
-// We use an explicit public path when the assets are served by webpack
-// to fix this issue:
-// http://stackoverflow.com/questions/34133808/webpack-ots-parsing-error-loading-fonts/34133809#34133809
-export default (config) => ({
-  compiler_public_path: `http://${config.server_host}:${config.server_port}/`,
-  proxy: {
-    enabled: false,
-    options: {
-      // koa-proxy options
-      host: 'http://localhost:8000',
-      match: /^\/api\/.*/
-    }
-  }
-})
+
+module.exports = {
+
+  // ----------------------------------
+  // Server Configuration
+  // ----------------------------------
+  server_url : process.env.SERVER_URL || 'localhost',
+  server_port : process.env.SERVER_PORT || 9090,
+
+  // ----------------------------------
+  // Dev Server Configuration
+  // ----------------------------------
+  dev_server_url : process.env.DEV_SERVER_URL || 'localhost',
+  dev_server_port : process.env.DEV_SERVER_PORT || 3000,
+
+  // ----------------------------------
+  // Email Configuration
+  // ----------------------------------
+  smtp_login : process.env.SMTP_LOGIN || 'kevin.clarens@gmail.com',
+  smtp_password : process.env.SMTP_PASSWORD || 'secret',
+
+  email_route_url : process.env.EMAIL_URL || 'http://localhost:3000/email',
+  email_destination : process.env.EMAIL_DESTINATION || 'kevin.clarens@gmail.com'
+}
+
