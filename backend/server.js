@@ -55,7 +55,7 @@ nunjucks.setup({}, app);
 
 app.get('/', function (req, res) {
   res.render('index', {
-    title: 'Colibri Auto Location'
+    title: 'Webtrip'
   });
 });
 
