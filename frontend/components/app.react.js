@@ -9,7 +9,8 @@ import React from 'react'
  * Load Components
  */
 
-import Hero from './sections/hero/hero.react'
+import Hero from './hero/hero.react'
+import Roadmap from './sections/roadmap/roadmap.react'
 
 /**
  * Define App react component
@@ -18,7 +19,10 @@ import Hero from './sections/hero/hero.react'
 export default class App extends React.Component {
   render() {
     return (
-      <Hero />
+      <div style={{height:'100%'}}>
+        <Hero />
+        <Roadmap />
+      </div>
     )
   }
 }

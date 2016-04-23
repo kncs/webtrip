@@ -11,6 +11,9 @@
 //import fonts
 @import "./fonts/fonts";
 
+//import colors
+@import "./colors";
+
 /* === GENERAL === */
 html, body {
   height: 100%;
@@ -18,7 +21,7 @@ html, body {
 
 body {
   color: white;
-  font-family: 'Raleway', Helvetica, sans-serif;
+  font-family: peace-sans, Arial, sans-serif;
   font-size: 16px;
   background: url('../images/background.png') top left repeat;
 }
@@ -35,7 +38,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 4em;
 }
 
 h1, h2 {
@@ -90,13 +93,24 @@ img {
 }
 
 section {
-  padding: 80px 0;
-
   h2{
     margin: 20px 0 40px;
+    font-size: 46px;
+    font-weight: normal;
+    color: @pastel-blue;
+
+    i.fa {
+      font-size: 60px;
+      color: @accent-color;
+      margin-right: 25px;
+    }
   }
 
   h3{
     margin: 30px 0 10px;
   }
+}
+
+.height100 {
+  height: 100%;
 }
