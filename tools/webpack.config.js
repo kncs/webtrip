@@ -126,7 +126,7 @@ loaders.push({
 
 // Fonts
 loaders.push({
-  test: /\.(eot|svg|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
+  test: /\.(eot|svg|otf|ttf|woff(2)?)(\?v=\d+\.\d+\.\d+)?/,
   loader: 'url'
 })
 

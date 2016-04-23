@@ -3,7 +3,13 @@
 /**
  * Module dependencies
  */
-import React from 'react';
+import React from 'react'
+
+/**
+ * Load Components
+ */
+
+import Hero from './sections/hero/hero.react'
 
 /**
  * Define App react component
@@ -12,7 +18,7 @@ import React from 'react';
 export default class App extends React.Component {
   render() {
     return (
-      <h1>{'This is an awesome site'}</h1>
-    );
+      <Hero />
+    )
   }
 }
