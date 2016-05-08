@@ -12,10 +12,10 @@ import React, {Component} from 'react'
 export default class Section extends React.Component {
 
   renderLinks() {
-    return this.props.links.map(function(link){
+    return this.props.links.map(function(link, index){
       let className = link.active ? 'active' : '';
       return (
-        <li className={className} key={link.label}>
+        <li className={className} key={index} onClick={link.onClick}>
           <a href={link.href}>
             {link.label}
           </a>
