@@ -1,3 +1,32 @@
+//import colors
+@import "../../../styles/colors";
+
 #roadmap {
-  background-color: white;
+  position:relative;
+  .section-header {
+    z-index: 20;
+  }
+
+  .panel {
+    z-index: 21;
+    position: absolute;
+    top: 130px;
+    bottom: 30px;
+    left: 30px;
+    width: 300px;
+    border: 0;
+
+    .panel-heading {
+      text-align: center;
+      border: 0;
+      height: 50px;
+      font-size: 25px;
+      background-color: @accent-color;
+    }
+
+    .panel-body {
+      color: black;
+      padding: 0;
+    }
+  }
 }

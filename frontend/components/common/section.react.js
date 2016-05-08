@@ -10,20 +10,32 @@ import React, {Component} from 'react'
  */
 
 export default class Section extends React.Component {
+
+  renderLinks() {
+    return this.props.links.map(function(link){
+      let className = link.active ? 'active' : '';
+      return (
+        <li className={className} key={link.label}>
+          <a href={link.href}>
+            {link.label}
+          </a>
+        </li>
+      );
+    })
+  }
+
   render() {
     return (
-      <section className="height100" id={this.props.id}>
-        <div className="container-fluid height100">
-          <div className="row height100">
-            <div className="col-sm-4 height100">
-              <h2>
-                <i className={'fa fa-'+this.props.icon} aria-hidden="true"></i>
-                {this.props.title.toUpperCase()}
-              </h2>
-            </div>
-            <div className="col-sm-8 height100">
+      <section id={this.props.id}>
+        <div className="section-header">
+          <i className={"fa fa-" + this.props.icon} aria-hidden="true"></i>
+          <ul className="section-links">
+            {this.renderLinks()}
+          </ul>
+        </div>
+        <div className="section-content container-fluid">
+          <div className="row">
               {this.props.children}
-            </div>
           </div>
         </div>
       </section>
@@ -37,6 +49,11 @@ export default class Section extends React.Component {
 
 Section.propTypes = {
   id: React.PropTypes.string,
-  title: React.PropTypes.string
+  link: React.PropTypes.arrayOf(
+    React.PropTypes.shape({
+      href: React.PropTypes.string,
+      label: React.PropTypes.string
+    })
+  )
 };
 
