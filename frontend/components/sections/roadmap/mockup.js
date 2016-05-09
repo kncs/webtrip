@@ -1,10 +1,19 @@
-export default [
-  {name : 'San Francisco'},
-  {name : 'Yosemite'},
-  {name : 'Sequoia Park'},
-  {name : 'Grand Cnayon'},
-  {name : 'Death Valley'},
-  {name : 'Los Angeles'},
-  {name : 'Washington'},
-  {name : 'New York'}
+export default [,
+  {name : 'New York', location : {lat : 40.730292, long : -73.998645}},
+  {name : 'San Francisco', location : {lat : 37.782647, long : -122.416317}},
+  {name : 'Yosemite', location : {lat : 37.864940, long : -119.538244}},
+  {name : 'Sequoia Park', location : {lat : 36.434628, long : -118.684561}},
+  {name : 'Bakersfield', location : {lat : 35.365144, long : -119.037238}},
+  {name : 'Mojave', location : {lat : 35.047404, long : -118.168052}},
+  {name : 'Kingman', location : {lat : 35.193580, long : -114.062479}},
+  {name : 'Flagstaff', location : {lat : 35.201950, long : -111.649504}},
+  {name : 'Grand Canyon', location : {lat : 36.106722, long : -112.113040}},
+  {name : 'Page', location : {lat : 36.916445, long : -111.456675}},
+  {name : 'Zion', location : {lat : 37.297997, long : -113.026376}},
+  {name : 'Las Vegas', location : {lat : 36.152400, long : -115.144833}},
+  {name : 'Death Valley', location : {lat : 36.423056, long : -116.925199}},
+  {name : 'Bradys', location : {lat : 35.702742, long : -117.868553}},
+  {name : 'Los Angeles', location : {lat : 34.037253, long : -118.251104}},
+  {name : 'Washington', location : {lat : 38.908516, long : -77.037580}},
+  {name : 'New York', location : {lat : 40.730292, long : -73.998645}}
 ]

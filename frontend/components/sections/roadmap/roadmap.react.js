@@ -26,8 +26,8 @@ export default class Roadmap extends React.Component {
         <div className="panel-body">
           <ul className="list-group">
             {
-              mockup.map(function(city){
-                return <li key={city.name} className="list-group-item">{city.name}</li>
+              mockup.map(function(city, index){
+                return <li key={index} className="list-group-item">{city.name}</li>
               })
             }
           </ul>
