@@ -1,13 +1,16 @@
 export default {
   DeathValley : require('./death-valley.jpg'),
-  SanFrancisco : require('./golden-gate-bridge.jpg'),
+  Delphine : require('./delphine.jpg'),
   GrandCanyon : require('./grand-canyon.jpg'),
-  LosAngeles : require('./hollywood.jpg'),
-  LasVegas : require('./las-vegas.jpg'),
-  Washington : require('./lincoln-memorial.jpg'),
-  SequoiaPark : require('./sequoia-park.jpg'),
-  NewYork : require('./statue-liberte.jpg'),
-  Yosemite : require('./yosemite.jpg'),
   Kevin : require('./kevin.jpg'),
-  Delphine : require('./delphine.jpg')
+  LakePowel : require('./lake-powel.jpg'),
+  LasVegas : require('./las-vegas.jpg'),
+  LosAngeles : require('./hollywood.jpg'),
+  Mojave : require('./mojave.jpg'),
+  NewYork : require('./statue-liberte.jpg'),
+  SanFrancisco : require('./golden-gate-bridge.jpg'),
+  SequoiaPark : require('./sequoia-park.jpg'),
+  Washington : require('./lincoln-memorial.jpg'),
+  Yosemite : require('./yosemite.jpg'),
+  Zion : require('./zion.jpg')
 }
