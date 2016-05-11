@@ -4,13 +4,15 @@
  * Module dependencies
  */
 import React, {Component} from 'react';
-
-import SectionHelper from '../section-helper';
-import Section from '../../common/section.react';
 import GoogleMap from 'google-map-react';
 
-import mockup from './mockup';
+import SectionHelper from '../section-helper'
+import Section from '../../common/section.react'
+import Markers from './marker.react'
+
+import mockup from './mockup'
 import style from './roadmap.less'
+
 
 
 
@@ -36,7 +38,11 @@ export default class Roadmap extends React.Component {
    );
   }
 
+
   render() {
+    const markers = mockup.map(function(city, index) {
+      return <Markers {...city.location} key={index} />
+    });
     return (
       <Section
           id="roadmap"
@@ -45,9 +51,11 @@ export default class Roadmap extends React.Component {
       >
         <GoogleMap
             style = {{height:'100%'}}
-            defaultCenter={[37.769366, -122.421947]}
-            defaultZoom={6}
-        />
+            defaultCenter={[41, -108]}
+            defaultZoom={5}
+        >
+          {/*markers*/}
+        </GoogleMap>
         {this.renderCities()}
       </Section>
     );

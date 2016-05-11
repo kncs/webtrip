@@ -15,6 +15,8 @@ import Roadmap from './sections/roadmap/roadmap.react'
 import Gallery from './sections/gallery/gallery.react'
 import About from './sections/about/about.react'
 
+import Wallpaper from './common/wallpaper.react'
+
 /**
  * Load Stores
  */
@@ -38,7 +40,8 @@ class App extends React.Component {
   }
 
   render() {
-    let page = <Hero />;
+    //let page = <Hero />;
+    let page = <Wallpaper />;
     switch(this.state.page) {
       case 'about':
         page = <About />;
