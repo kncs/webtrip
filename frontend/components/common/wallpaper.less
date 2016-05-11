@@ -1,0 +1,42 @@
+//import colors
+@import "../../styles/colors";
+
+#wallpaper {
+  .row, div[class^="col"] {
+    margin: 0;
+    padding: 0;
+  }
+
+  .card{
+    position: relative;
+  }
+  .card:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+    background-color: @accent-color;
+  }
+
+  .card-text {
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    color: black;
+
+    margin: auto;
+    width:80%;
+    height: 30%;
+  }
+
+  .card-image {
+    position:  absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width:100%;
+    height:100%
+  }
+}
