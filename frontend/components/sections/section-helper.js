@@ -25,4 +25,10 @@ section.getLinks = function(activeLink){
     {label:about, href:'', active: activeLink === about, onClick:handleClick('about')}
   ];
 }
+
+section.getWallpaperLinks = function(){
+  return [
+    {label:'Retour à la gallerie', href:'', active:true, onClick:handleClick('gallery')}
+  ];
+}
 export default section;
