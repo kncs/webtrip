@@ -11,6 +11,9 @@ class GalleriesActionsCreator {
 
   getGallery(path) {
     let self = this;
+    dispatcher.dispatch({
+      type : actionTypes.GET_GALLERY
+    });
     return webtrip.get('/galleries/' + path)
     .then(function(gallery) {
       dispatcher.dispatch({

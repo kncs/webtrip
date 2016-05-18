@@ -29,6 +29,7 @@ class GalleryStore extends Store {
         break;
 
       case actionTypes.GET_GALLERY_FAILED:
+        _gallery = _gallery.clear();
         this.__emitChange();
         break;
 
