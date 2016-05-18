@@ -37,8 +37,10 @@ export default class Polaroid extends React.Component {
 
     return (
       <div className="text-center center-block" style={{position: 'relative'}}>
-        <img src={this.props.src} alt={this.props.alt} style={imgStyle}/>
-        <p style={pStyle}>{this.props.title}</p>
+        <a href="" onClick={this.props.onClick}>
+          <img src={this.props.src} alt={this.props.alt} style={imgStyle}/>
+          <p style={pStyle}>{this.props.title}</p>
+        </a>
       </div>
     );
   }

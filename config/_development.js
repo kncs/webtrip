@@ -1,3 +1,4 @@
+const path = require('path');
 
 module.exports = {
 
@@ -11,6 +12,11 @@ module.exports = {
   // Dev Server Configuration
   // ----------------------------------
   dev_server_url : process.env.DEV_SERVER_URL || 'localhost',
-  dev_server_port : process.env.DEV_SERVER_PORT || 3000
+  dev_server_port : process.env.DEV_SERVER_PORT || 3000,
+
+  // ----------------------------------
+  // Dev File System Configuration
+  // ----------------------------------
+  dir_data : path.join(__dirname,'../data/')
 }
 

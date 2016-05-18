@@ -53,6 +53,26 @@ nunjucks.setup({}, app);
  * Mount routes
  */
 
+app.get('/galleries/:name', function(req, res) {
+
+  let options = {
+    root: config.dir_data + 'galleries/',
+    dotfiles: 'deny',
+    headers: {
+        'x-timestamp': Date.now(),
+        'x-sent': true
+    }
+  };
+
+
+  let filename = req.params.name + '.json';
+  res.sendFile(filename, options, function (err) {
+    if (err) {
+      res.status(err.status).end();
+    }
+  });
+});
+
 app.get('/', function (req, res) {
   res.render('index', {
     title: 'Webtrip'

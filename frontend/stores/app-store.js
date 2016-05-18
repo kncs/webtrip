@@ -1,9 +1,3 @@
-'use strict';
-
-/**
- * Module dependencies
- */
-
 import constants from '../constants/constants';
 import {Store} from 'flux/utils';
 import dispatcher from '../dispatcher/dispatcher';

@@ -1,14 +1,5 @@
-'use strict';
-
-/**
- * Module dependencies
- */
 import React from 'react'
 import {Container} from 'flux/utils';
-
-/**
- * Load Components
- */
 
 import Hero from './hero/hero.react'
 import Roadmap from './sections/roadmap/roadmap.react'
@@ -17,12 +8,9 @@ import About from './sections/about/about.react'
 
 import Wallpaper from './common/wallpaper.react'
 
-/**
- * Load Stores
- */
 
 import AppStore from '../stores/app-store';
-
+import GalleryStore from '../stores/gallery-store';
 
 /**
  * Define App react component
@@ -30,18 +18,18 @@ import AppStore from '../stores/app-store';
 
 class App extends React.Component {
   static getStores() {
-    return [AppStore];
+    return [AppStore, GalleryStore];
   }
 
   static calculateState() {
     return {
-      page : AppStore.getPage()
+      page : AppStore.getPage(),
+      galleryResources : GalleryStore.getGallery()
     };
   }
 
   render() {
-    //let page = <Hero />;
-    let page = <Wallpaper />;
+    let page = <Hero />;
     switch(this.state.page) {
       case 'about':
         page = <About />;
@@ -51,6 +39,9 @@ class App extends React.Component {
         break;
       case 'gallery':
         page = <Gallery />;
+        break;
+      case 'wallpaper':
+        page = <Wallpaper resources={this.state.galleryResources}/>;
         break;
     }
 

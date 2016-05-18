@@ -13,13 +13,27 @@ import Polaroid from '../../common/polaroid.react';
 import style from './gallery.less';
 import mockup from './mockup';
 
+/**
+ * Load actions creators
+ */
+import galleriesActionsCreator from '../../../actions/galleries-actions-creator.js'
+import appActionsCreator from '../../../actions/app-actions-creator.js'
 
 /**
  * Define Roadmap react component
  */
 export default class Roadmap extends React.Component {
 
+  handleClick(galleryName) {
+    return function(event) {
+      event.preventDefault();
+      galleriesActionsCreator.getGallery(galleryName);
+      appActionsCreator.changePage('wallpaper');
+    }
+  }
+
   renderComponents() {
+    let self = this;
     return mockup.map(function(galery, index) {
       return (
         <Polaroid
@@ -27,6 +41,7 @@ export default class Roadmap extends React.Component {
             fontColor='black'
             fontSize='40px'
             key={index}
+            onClick = {self.handleClick(galery.name)}
             size={300}
             src={galery.image.src}
             title={galery.title}
@@ -36,7 +51,6 @@ export default class Roadmap extends React.Component {
   }
 
   render() {
-    console.log(SectionHelper);
     return (
       <Section
           id="galleries"
