@@ -24,11 +24,20 @@ export default class Section extends React.Component {
     })
   }
 
+  renderTitle() {
+    if(this.props.title) {
+      return <span>{this.props.title}</span>
+    }
+  }
+
   render() {
     return (
       <section id={this.props.id}>
         <div className="section-header">
-          <i className={"fa fa-" + this.props.icon} aria-hidden="true"></i>
+          <i className={"fa fa-" + this.props.icon} aria-hidden="true">
+            {this.renderTitle()}
+          </i>
+
           <ul className="section-links">
             {this.renderLinks()}
           </ul>

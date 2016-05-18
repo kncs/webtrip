@@ -7,29 +7,37 @@ import images from '../images'
 
 let actionTypes = constants.actionTypes;
 
-let _gallery = Immutable.List();
+let _resources = Immutable.List();
+let _title = '';
+let _visiteDate = '';
 
 class GalleryStore extends Store {
 
   getGallery() {
-    return _gallery;
+    return {
+      resources : _resources,
+      title : _title,
+      visiteDate : _visiteDate
+    }
   }
 
   __onDispatch(payload) {
     let action = payload;
     switch(action.type) {
       case actionTypes.GET_GALLERY:
-        _gallery = _gallery.clear();
+        _resources = _resources.clear();
         this.__emitChange();
         break;
 
       case actionTypes.GET_GALLERY_COMPLETED:
-        _gallery = Immutable.List(action.gallery);
+        _resources = Immutable.List(action.resources);
+        _title = action.title;
+        _visiteDate = action.visiteDate;
         this.__emitChange();
         break;
 
       case actionTypes.GET_GALLERY_FAILED:
-        _gallery = _gallery.clear();
+        _resources = _resources.clear();
         this.__emitChange();
         break;
 

@@ -24,10 +24,10 @@ import appActionsCreator from '../../../actions/app-actions-creator.js'
  */
 export default class Roadmap extends React.Component {
 
-  handleClick(galleryName) {
+  handleClick(galery) {
     return function(event) {
       event.preventDefault();
-      galleriesActionsCreator.getGallery(galleryName);
+      galleriesActionsCreator.getGallery(galery);
       appActionsCreator.changePage('wallpaper');
     }
   }
@@ -41,7 +41,7 @@ export default class Roadmap extends React.Component {
             fontColor='black'
             fontSize='40px'
             key={index}
-            onClick = {self.handleClick(galery.name)}
+            onClick = {self.handleClick(galery)}
             size={300}
             src={galery.image.src}
             title={galery.title}

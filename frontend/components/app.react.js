@@ -24,7 +24,7 @@ class App extends React.Component {
   static calculateState() {
     return {
       page : AppStore.getPage(),
-      galleryResources : GalleryStore.getGallery()
+      gallery : GalleryStore.getGallery()
     };
   }
 
@@ -41,7 +41,7 @@ class App extends React.Component {
         page = <Gallery />;
         break;
       case 'wallpaper':
-        page = <Wallpaper resources={this.state.galleryResources}/>;
+        page = <Wallpaper gallery={this.state.gallery}/>;
         break;
     }
 

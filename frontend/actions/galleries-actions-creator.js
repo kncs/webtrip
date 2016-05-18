@@ -9,16 +9,18 @@ let actionTypes = constants.actionTypes;
 
 class GalleriesActionsCreator {
 
-  getGallery(path) {
+  getGallery(galery) {
     let self = this;
     dispatcher.dispatch({
       type : actionTypes.GET_GALLERY
     });
-    return webtrip.get('/galleries/' + path)
-    .then(function(gallery) {
+    return webtrip.get('/galleries/' + galery.name)
+    .then(function(resources) {
       dispatcher.dispatch({
         type : actionTypes.GET_GALLERY_COMPLETED,
-        gallery : gallery
+        resources : resources,
+        visiteDate : galery.visiteDate,
+        title: galery.title
       });
     })
     .catch(function() {
