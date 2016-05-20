@@ -1,13 +1,5 @@
-'use strict';
-
-/**
- * Module dependencies
- */
 import React, {Component} from 'react'
-
-/**
- * Define Section react component
- */
+import { Link } from 'react-router'
 
 export default class Section extends React.Component {
 
@@ -15,10 +7,8 @@ export default class Section extends React.Component {
     return this.props.links.map(function(link, index){
       let className = link.active ? 'active' : '';
       return (
-        <li className={className} key={index} onClick={link.onClick}>
-          <a href={link.href}>
-            {link.label}
-          </a>
+        <li className={className} key={index}>
+          <Link to={link.href}>{link.label}</Link>
         </li>
       );
     })

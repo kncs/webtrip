@@ -1,28 +1,9 @@
-'use strict';
-
-/**
- * Module dependencies
- */
 import React, {Component} from 'react'
+import { Link } from 'react-router'
+
 import style from './hero.less'
 
-/**
- * Load actions creator
- */
-import AppActionsCreator from '../../actions/app-actions-creator'
-
-
-/**
- * Define Hero react component
- */
-
 export default class Hero extends Component {
-
-  handleClick(event) {
-    event.preventDefault();
-    AppActionsCreator.changePage('roadmap');
-  }
-
   render() {
     return (
       <section id="hero">
@@ -36,8 +17,8 @@ export default class Hero extends Component {
           <div className="row hero-bottom">
             <div className="col-sm-12">
               <span>{'On se casse, du coup pour les news c\'est '}</span>
-              <span className="extra-description" onClick={this.handleClick}>
-                {'ICI'}
+              <span className="extra-description">
+                <Link to="/roadmap">{'ICI'}</Link>
               </span>
             </div>
           </div>

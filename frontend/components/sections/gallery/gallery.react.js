@@ -1,9 +1,5 @@
-'use strict';
-
-/**
- * Module dependencies
- */
 import React, {Component} from 'react';
+import { Link } from 'react-router'
 import Gridify from 'react-bootstrap-gridify';
 
 import SectionHelper from '../section-helper';
@@ -13,39 +9,31 @@ import Polaroid from '../../common/polaroid.react';
 import style from './gallery.less';
 import mockup from './mockup';
 
-/**
- * Load actions creators
- */
 import galleriesActionsCreator from '../../../actions/galleries-actions-creator.js'
-import appActionsCreator from '../../../actions/app-actions-creator.js'
 
-/**
- * Define Roadmap react component
- */
 export default class Roadmap extends React.Component {
 
-  handleClick(galery) {
+  handleClick(gallery) {
     return function(event) {
-      event.preventDefault();
-      galleriesActionsCreator.getGallery(galery);
-      appActionsCreator.changePage('wallpaper');
+      galleriesActionsCreator.getGallery(gallery);
     }
   }
 
   renderComponents() {
     let self = this;
-    return mockup.map(function(galery, index) {
+    return mockup.map(function(gallery, index) {
       return (
-        <Polaroid
-            alt={galery.image.alt}
-            fontColor='black'
-            fontSize='40px'
-            key={index}
-            onClick = {self.handleClick(galery)}
-            size={300}
-            src={galery.image.src}
-            title={galery.title}
-        />
+        <Link to={`/gallery/${gallery.name}`} onClick = {self.handleClick(gallery)}>
+          <Polaroid
+              alt={gallery.image.alt}
+              fontColor='black'
+              fontSize='40px'
+              key={index}
+              size={300}
+              src={gallery.image.src}
+              title={gallery.title}
+          />
+        </Link>
       );
     })
   }

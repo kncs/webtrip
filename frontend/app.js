@@ -1,11 +1,29 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/app.react'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+
+import AppController from './components/app-controller.react'
+import Hero from './components/hero/hero.react'
+import Roadmap from './components/sections/roadmap/roadmap.react'
+import Gallery from './components/sections/gallery/gallery.react'
+import About from './components/sections/about/about.react'
+
+import Wallpaper from './components/sections/wallpaper/wallpaper.react'
 
 // import app style
 import './styles/app.less'
 
-ReactDOM.render(<App />, document.getElementById('app'))
+ReactDOM.render((
+  <Router history={browserHistory}>
+    <Route path="/" component={AppController}>
+      <IndexRoute component={Hero} />
+      <Route path="roadmap" component={Roadmap}/>
+      <Route path="gallery/:city" component={Wallpaper}/>
+      <Route path="gallery" component={Gallery} />
+      <Route path="about" component={About}/>
+    </Route>
+  </Router>
+), document.getElementById('app'))
 
 // import vendor javascript
 import 'bootstrap'

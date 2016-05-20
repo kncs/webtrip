@@ -7,9 +7,11 @@
 const http = require('http');
 const path = require('path');
 const express = require('express');
+const basicAuth = require('basic-auth');
 const bodyParser = require('body-parser');
 const nunjucks  = require('express-nunjucks');
 const config = require('../config');
+
 
 /**
  * Print out error when uncaught exception happens
@@ -22,11 +24,36 @@ process.on('uncaughtException', function (err) {
   process.exit(1);
 });
 
+
+/**
+ * Manage authentication
+ */
+
+var auth = function (req, res, next) {
+  function unauthorized(res) {
+    res.set('WWW-Authenticate', 'Basic realm=Authorization Required');
+    return res.send(401);
+  };
+
+  var user = basicAuth(req);
+  if (!user || !user.name || !user.pass) {
+    return unauthorized(res);
+  };
+
+  if (user.name === 'foo' && user.pass === 'bar') {
+    return next();
+  }
+  else {
+    return unauthorized(res);
+  };
+};
+
 /**
  * Create app
  */
 
 var app = express();
+
 
 /**
  * Support json encoded bodies
@@ -71,6 +98,10 @@ app.get('/galleries/:name', function(req, res) {
       res.status(err.status).end();
     }
   });
+});
+
+app.get('/admin', auth, function (req, res) {
+  res.send('Admin section');
 });
 
 app.get('/', function (req, res) {

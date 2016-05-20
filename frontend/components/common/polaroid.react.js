@@ -1,13 +1,4 @@
-'use strict';
-
-/**
- * Module dependencies
- */
 import React, {Component} from 'react'
-
-/**
- * Define Polaroid react component
- */
 
 export default class Polaroid extends React.Component {
   render() {
@@ -37,10 +28,8 @@ export default class Polaroid extends React.Component {
 
     return (
       <div className="text-center center-block" style={{position: 'relative'}}>
-        <a href="" onClick={this.props.onClick}>
-          <img src={this.props.src} alt={this.props.alt} style={imgStyle}/>
-          <p style={pStyle}>{this.props.title}</p>
-        </a>
+        <img src={this.props.src} alt={this.props.alt} style={imgStyle}/>
+        <p style={pStyle}>{this.props.title}</p>
       </div>
     );
   }
