@@ -6,9 +6,9 @@ import AppController from './components/app-controller.react'
 import Hero from './components/hero/hero.react'
 import Roadmap from './components/sections/roadmap/roadmap.react'
 import Gallery from './components/sections/gallery/gallery.react'
-import About from './components/sections/about/about.react'
-
 import Wallpaper from './components/sections/wallpaper/wallpaper.react'
+import About from './components/sections/about/about.react'
+import Admin from './components/admin/add-resource.react'
 
 // import app style
 import './styles/app.less'
@@ -21,6 +21,7 @@ ReactDOM.render((
       <Route path="gallery/:city" component={Wallpaper}/>
       <Route path="gallery" component={Gallery} />
       <Route path="about" component={About}/>
+      <Route path="admin" component={Admin}/>
     </Route>
   </Router>
 ), document.getElementById('app'))

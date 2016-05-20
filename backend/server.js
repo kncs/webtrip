@@ -101,7 +101,9 @@ app.get('/galleries/:name', function(req, res) {
 });
 
 app.get('/admin', auth, function (req, res) {
-  res.send('Admin section');
+  res.render('index', {
+    title: 'Webtrip | Admin'
+  });
 });
 
 app.get('/', function (req, res) {
