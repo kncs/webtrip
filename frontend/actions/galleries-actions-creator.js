@@ -10,7 +10,6 @@ let actionTypes = constants.actionTypes;
 class GalleriesActionsCreator {
 
   getGallery(galery) {
-    let self = this;
     dispatcher.dispatch({
       type : actionTypes.GET_GALLERY
     });
@@ -26,6 +25,23 @@ class GalleriesActionsCreator {
     .catch(function() {
       dispatcher.dispatch({
         type : actionTypes.GET_GALLERY_FAILED
+      });
+    });
+  }
+
+  addResource(options) {
+    dispatcher.dispatch({
+      type : actionTypes.ADD_RESOURCE
+    });
+    return webtrip.post('/galleries/' + options.city, options)
+    .then(function() {
+      dispatcher.dispatch({
+        type : actionTypes.ADD_RESOURCE_COMPLETED
+      });
+    })
+    .catch(function() {
+      dispatcher.dispatch({
+        type : actionTypes.ADD_RESOURCE_FAILED
       });
     });
   }

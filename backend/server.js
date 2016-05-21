@@ -1,9 +1,6 @@
 'use strict';
 
-/**
- * Module dependencies
- */
-
+const fs = require('fs');
 const http = require('http');
 const path = require('path');
 const express = require('express');
@@ -98,6 +95,30 @@ app.get('/galleries/:name', function(req, res) {
       res.status(err.status).end();
     }
   });
+});
+
+app.post('/galleries/:name', function(req, res) {
+
+  let filename = config.dir_data + 'galleries/' + req.params.name + '.json';
+  console.log(filename)
+  let contents = fs.readFileSync(filename);
+  let jsonContent = JSON.parse(contents);
+
+  let options = req.body;
+  if(options.type === 'Texte') {
+    jsonContent.push({
+      type : 'text',
+      description : options.comment
+    })
+    fs.writeFileSync(filename, JSON.stringify(jsonContent));
+    res.status(200).end();
+  }
+  else if (options.type === 'Image'){
+    res.status(200).end();
+  }
+  else {
+    res.status(403).end();
+  }
 });
 
 app.get('/admin', auth, function (req, res) {

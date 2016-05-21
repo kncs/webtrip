@@ -5,6 +5,8 @@ import style from './add-resource.less'
 
 import galleries from '../sections/gallery/mockup'
 
+import galleriesActionsCreator from '../../actions/galleries-actions-creator'
+
 export default class Roadmap extends React.Component {
   constructor() {
     super();
@@ -28,12 +30,35 @@ export default class Roadmap extends React.Component {
     });
   }
 
+  handleChangeComment() {
+    let self = this;
+    return function(event) {
+      event.preventDefault();
+      self.setState({
+        comment : event.target.value
+      });
+    }
+  }
+
+  handleSubmit() {
+    let self = this;
+    return function(event) {
+      event.preventDefault();
+      galleriesActionsCreator.addResource(self.state);
+    }
+  }
   renderFormComplement() {
     if(this.state.type === 'Texte') {
       return (
         <div className="row">
-          <div className="col-sm-6"><h4>{'Entrer le commentaire'}</h4></div>
-          <div className="col-sm-6"><textarea className="form-control" rows="3"/></div>
+          <div className="col-sm-6"><h4>{'Entrer le commentaire : '}</h4></div>
+          <div className="col-sm-6">
+            <textarea
+                className="form-control"
+                onChange={this.handleChangeComment()}
+                rows="3"
+            />
+          </div>
         </div>
       );
     }
@@ -45,6 +70,23 @@ export default class Roadmap extends React.Component {
         </div>
       );
     }
+  }
+
+  renderSubmitButton() {
+    return (
+      <div className="row">
+        <div className="col-sm-offset-6 col-sm-6">
+          <button
+              className="btn btn-primary"
+              onClick={this.handleSubmit()}
+              type="submit"
+              style={{width:'100%'}}
+          >
+            {'Ajouter'}
+          </button>
+        </div>
+      </div>
+    );
   }
 
   render() {
@@ -82,6 +124,7 @@ export default class Roadmap extends React.Component {
             </div>
           </div>
           {this.renderFormComplement()}
+          {this.renderSubmitButton()}
         </div>
       </section>
     );
