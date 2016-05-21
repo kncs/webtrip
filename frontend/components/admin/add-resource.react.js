@@ -1,19 +1,16 @@
 import React, {Component} from 'react'
 import Dropdown from '../common/dropdown.react'
 import InputFile from '../common/input-file.react'
-import style from './add-resource.less'
-
-import galleries from '../sections/gallery/mockup'
 
 import galleriesActionsCreator from '../../actions/galleries-actions-creator'
 
-export default class Roadmap extends React.Component {
+export default class AddResource extends React.Component {
   constructor() {
     super();
     this.state = {
       city : '',
       type : '',
-      file : null,
+      file : '',
       comment : ''
     }
   }
@@ -27,6 +24,12 @@ export default class Roadmap extends React.Component {
   handleSelectType(value) {
     this.setState({
       type : value
+    });
+  }
+
+  handleSelectFile(value) {
+    this.setState({
+      file : value
     });
   }
 
@@ -47,6 +50,7 @@ export default class Roadmap extends React.Component {
       galleriesActionsCreator.addResource(self.state);
     }
   }
+
   renderFormComplement() {
     if(this.state.type === 'Texte') {
       return (
@@ -66,7 +70,7 @@ export default class Roadmap extends React.Component {
       return (
         <div className="row">
           <div className="col-sm-6"><h4>{'Joindre une image : '}</h4></div>
-          <div className="col-sm-6"><InputFile/></div>
+          <div className="col-sm-6"><InputFile onSelect={this.handleSelectFile.bind(this)}/></div>
         </div>
       );
     }
@@ -90,43 +94,36 @@ export default class Roadmap extends React.Component {
   }
 
   render() {
-    let galleriesName = galleries.reduce(function (cumul, gallery) {
-      cumul.push(gallery.name);
-      return cumul;
-    }, []);
-
     return (
-      <section id="add-ressource">
-        <div className="container">
-          <div className="row">
-            <h3>{'Ajouter une ressource'}</h3>
-          </div>
-          <div className="row">
-            <div className="col-sm-6">
-              <h4>{'Selection de la ville :'}</h4>
-            </div>
-            <div className="col-sm-6">
-              <Dropdown
-                  options={galleriesName}
-                  onSelect={this.handleSelectCity.bind(this)}
-              />
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-sm-6">
-              <h4>{'Selection du type de ressource :'}</h4>
-            </div>
-            <div className="col-sm-6">
-              <Dropdown
-                  options={['Texte', 'Image']}
-                  onSelect={this.handleSelectType.bind(this)}
-              />
-            </div>
-          </div>
-          {this.renderFormComplement()}
-          {this.renderSubmitButton()}
+      <div id='add-resource'>
+        <div className="row">
+          <h3>{'Ajouter une ressource'}</h3>
         </div>
-      </section>
+        <div className="row">
+          <div className="col-sm-6">
+            <h4>{'Selection de la ville :'}</h4>
+          </div>
+          <div className="col-sm-6">
+            <Dropdown
+                options={this.props.galleries}
+                onSelect={this.handleSelectCity.bind(this)}
+            />
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-6">
+            <h4>{'Selection du type de ressource :'}</h4>
+          </div>
+          <div className="col-sm-6">
+            <Dropdown
+                options={['Texte', 'Image']}
+                onSelect={this.handleSelectType.bind(this)}
+            />
+          </div>
+        </div>
+        {this.renderFormComplement()}
+        {this.renderSubmitButton()}
+      </div>
     );
   }
 }

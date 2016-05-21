@@ -6,15 +6,22 @@ export default class InputFile extends React.Component {
   constructor() {
     super();
     this.state = {
-      file : null,
+      file : '',
     };
   }
 
   handleChange() {
     let self = this;
+    let reader = new FileReader();
     return function(event) {
       event.preventDefault();
-      self.setState({file: $("#input-file").files[0]});
+      reader.onload = function(upload) {
+        self.setState({
+          file: upload.target.result,
+        });
+        self.props.onSelect(upload.target.result);
+      }
+      reader.readAsDataURL(event.target.files[0]);
     }
   }
 
@@ -27,7 +34,7 @@ export default class InputFile extends React.Component {
     return (
       <div>
         <input
-            accept=".jpeg"
+            accept=".jpg"
             id="input-file"
             onChange={this.handleChange()}
             style={{display: 'none'}}

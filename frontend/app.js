@@ -8,7 +8,7 @@ import Roadmap from './components/sections/roadmap/roadmap.react'
 import Gallery from './components/sections/gallery/gallery.react'
 import Wallpaper from './components/sections/wallpaper/wallpaper.react'
 import About from './components/sections/about/about.react'
-import Admin from './components/admin/add-resource.react'
+import Admin from './components/admin/admin.react'
 
 // import app style
 import './styles/app.less'

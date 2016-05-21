@@ -31,7 +31,7 @@ export default class Dropdown extends React.Component {
             style={{width:'100%'}}
         >
           <span style={{float:'left'}}>{this.state.value}</span>
-          <span className="caret" style={{height: 'inherit', float:'right', marginTop : '10px'}}/>
+          <span className="caret" style={{height: 'inherit', float:'right'}}/>
         </button>
         <ul className="dropdown-menu" aria-labelledby="dropdown" style={{width:'100%'}}>
           {

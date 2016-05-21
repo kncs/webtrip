@@ -40,6 +40,19 @@ class WebtripService {
         });
     })
   }
+  delete(path, query) {
+    var self = this;
+    return new Promise(function(resolve, reject) {
+      request
+        .delete(self._getURL(path))
+        .send(query)
+        .end(function (err, res) {
+          if (err) return reject(err);
+          if (res.error) return reject(res);
+          resolve(res.body);
+        });
+    })
+  }
 }
 
 const webtrip = new WebtripService();
