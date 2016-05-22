@@ -7,8 +7,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development node tools/server.js",
     "clean": "rimraf build/*",
-    "copy": "cp -r ./backend/* ./build/ && cp ./config/_production.js ./build/",
-    "compile": "npm run copy && NODE_ENV=production node tools/compile.js && cd build/ && npm install",
+    "compile": "cross-env NODE_ENV=production node tools/compile.js",
     "build-production": "npm run clean && npm run compile",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,8 +16,8 @@
   "dependencies": {
     "basic-auth": "^1.0.4",
     "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
     "express": "^4.13.4",
-    "express-nunjucks": "^1.0.0",
     "flux": "^2.1.1",
     "google-map-react": "^0.11.2",
     "immutable": "^3.8.1",

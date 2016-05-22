@@ -5,7 +5,6 @@ const http = require('http');
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const nunjucks  = require('express-nunjucks');
 
 const config = require('../config');
 const routes = require('./routes');
@@ -49,10 +48,8 @@ app.use('/public', express.static(path.join(__dirname, '/public')));
 /*
  * Mount html engine
  */
-
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 app.set('views', __dirname);
-nunjucks.setup({}, app);
 
 /*
  * Mount routes
