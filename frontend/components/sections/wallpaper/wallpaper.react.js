@@ -16,15 +16,21 @@ import style from './wallpaper.less';
  * Define Wallpaper react component
  */
 export default class WallpaperSection extends React.Component {
+
+  renderVisiteDate() {
+     if(this.props.gallery.visiteDate){
+        return <p>{'Repassez par ici après le '} <span>{this.props.gallery.visiteDate}</span></p>
+      }
+  }
   renderContent() {
     if(this.props.gallery.resources.size > 0) {
       return <Wallpaper resources={this.props.gallery.resources}/>;
     }
     else {
       return (
-        <div>
-          <h2>{'Arf, malheureusement nous n\'avons pas encore mis de photos !!'}</h2>
-          <p>{'Repassez par ici après le '} <span>{this.props.gallery.visiteDate}</span></p>
+        <div style={{padding : '50px'}}>
+          <h2>{'Hum ... il semblerait que nous n\'ayons pas encore mis de photos !!'}</h2>
+          { this.renderVisiteDate() }
         </div>
       );
     }

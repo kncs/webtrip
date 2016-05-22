@@ -12,5 +12,8 @@ export default {
   SequoiaPark : require('./sequoia-park.jpg'),
   Washington : require('./lincoln-memorial.jpg'),
   Yosemite : require('./yosemite.jpg'),
-  Zion : require('./zion.jpg')
+  Zion : require('./zion.jpg'),
+  Divers : require('./divers.jpg'),
+  Selfies : require('./zion.jpg'),
+  Food : require('./food.jpg')
 }

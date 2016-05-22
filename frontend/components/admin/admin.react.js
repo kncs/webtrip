@@ -9,10 +9,12 @@ export default class admin extends React.Component {
 
   render() {
 
-    let galleriesName = galleries.reduce(function (cumul, gallery) {
+    let galleriesName = galleries
+    .reduce(function (cumul, gallery) {
       cumul.push(gallery.name);
       return cumul;
-    }, []);
+    }, [])
+    .sort();
 
     return (
       <section id="admin">
