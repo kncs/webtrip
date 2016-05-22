@@ -1,4 +1,4 @@
-export default [,
+export default [
   {name : 'New York', location : {lat : 40.730292, lng : -73.998645}},
   {name : 'San Francisco', location : {lat : 37.782647, lng : -122.416317}},
   {name : 'Yosemite', location : {lat : 37.864940, lng : -119.538244}},
