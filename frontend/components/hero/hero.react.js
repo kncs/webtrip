@@ -16,7 +16,7 @@ export default class Hero extends Component {
           </div>
           <div className="row hero-bottom">
             <div className="col-sm-12">
-              <span>{'On se casse, du coup pour les news c\'est '}</span>
+              <span>{'Pour les news c\'est par '}</span>
               <span className="extra-description">
                 <Link to="/roadmap">{'ICI'}</Link>
               </span>
