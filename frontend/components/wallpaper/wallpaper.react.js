@@ -5,9 +5,8 @@
  */
 import React, {Component} from 'react';
 
-import SectionHelper from '../section-helper';
-import Section from '../../common/section.react';
-import Wallpaper from '../../common/wallpaper.react';
+import Section from '../common/section.react';
+import Wallpaper from '../common/wallpaper.react';
 
 import style from './wallpaper.less';
 
@@ -42,7 +41,7 @@ export default class WallpaperSection extends React.Component {
           title={this.props.gallery.title}
           id="wallpaper"
           icon="camera-retro"
-          links={SectionHelper.getWallpaperLinks()}
+          links={[{label:'Retour à la gallerie', href:'/', active:true}]}
       >
         {this.renderContent()}
       </Section>

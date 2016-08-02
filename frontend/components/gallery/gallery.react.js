@@ -2,14 +2,13 @@ import React, {Component} from 'react';
 import { Link } from 'react-router'
 import Gridify from 'react-bootstrap-gridify';
 
-import SectionHelper from '../section-helper';
-import Section from '../../common/section.react';
-import Polaroid from '../../common/polaroid.react';
+import Section from '../common/section.react';
+import Polaroid from '../common/polaroid.react';
 
 import style from './gallery.less';
 import mockup from './mockup';
 
-import galleriesActionsCreator from '../../../actions/galleries-actions-creator.js'
+import galleriesActionsCreator from '../../actions/galleries-actions-creator.js'
 
 export default class Roadmap extends React.Component {
 
@@ -43,7 +42,8 @@ export default class Roadmap extends React.Component {
       <Section
           id="galleries"
           icon="camera-retro"
-          links={SectionHelper.getLinks('Gallerie')}
+          links={[]}
+          title={'Galleries photos des USA !'}
       >
         <Gridify columns={{xs:1, sm:2, md:3, lg:4}} components={this.renderComponents()}/>
       </Section>

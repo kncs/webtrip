@@ -1,5 +1,5 @@
 
-import images from '../../../images'
+import images from '../../images'
 
 export default [
   {
@@ -73,23 +73,5 @@ export default [
     image: { src: images.NewYork, alt: 'New York'},
     name: 'newyork',
     visiteDate : '18 juin 2016'
-  },
-  {
-    title : 'Divers',
-    image: { src: images.Divers, alt: 'Divers'},
-    name: 'divers',
-    visiteDate : ''
-  },
-  {
-    title : 'Selfies',
-    image: { src: images.Selfies, alt: 'Selfies'},
-    name: 'selfies',
-    visiteDate : ''
-  },
-  {
-    title : 'Food',
-    image: { src: images.Food, alt: 'Food'},
-    name: 'food',
-    visiteDate : ''
   }
 ]

@@ -1,8 +1,6 @@
 export default {
   DeathValley : require('./death-valley.jpg'),
-  Delphine : require('./delphine.jpg'),
   GrandCanyon : require('./grand-canyon.jpg'),
-  Kevin : require('./kevin.jpg'),
   LakePowel : require('./lake-powel.jpg'),
   LasVegas : require('./las-vegas.jpg'),
   LosAngeles : require('./hollywood.jpg'),
@@ -12,8 +10,5 @@ export default {
   SequoiaPark : require('./sequoia-park.jpg'),
   Washington : require('./lincoln-memorial.jpg'),
   Yosemite : require('./yosemite.jpg'),
-  Zion : require('./zion.jpg'),
-  Divers : require('./divers.jpg'),
-  Selfies : require('./zion.jpg'),
-  Food : require('./food.jpg')
+  Zion : require('./zion.jpg')
 }

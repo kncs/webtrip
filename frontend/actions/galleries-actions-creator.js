@@ -28,40 +28,6 @@ class GalleriesActionsCreator {
       });
     });
   }
-
-  addResource(options) {
-    dispatcher.dispatch({
-      type : actionTypes.ADD_RESOURCE
-    });
-    return webtrip.post('/galleries/' + options.city + '/resource', options)
-    .then(function() {
-      dispatcher.dispatch({
-        type : actionTypes.ADD_RESOURCE_COMPLETED
-      });
-    })
-    .catch(function() {
-      dispatcher.dispatch({
-        type : actionTypes.ADD_RESOURCE_FAILED
-      });
-    });
-  }
-
-  deleteResource(options) {
-    dispatcher.dispatch({
-      type : actionTypes.DELETE_RESOURCE
-    });
-    return webtrip.delete('/galleries/' + options.city + '/resource', options)
-    .then(function() {
-      dispatcher.dispatch({
-        type : actionTypes.DELETE_RESOURCE_COMPLETED
-      });
-    })
-    .catch(function() {
-      dispatcher.dispatch({
-        type : actionTypes.DELETE_RESOURCE_FAILED
-      });
-    });
-  }
 }
 
 const instance = new GalleriesActionsCreator(dispatcher);
