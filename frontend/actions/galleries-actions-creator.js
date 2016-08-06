@@ -9,14 +9,15 @@ let actionTypes = constants.actionTypes;
 
 class GalleriesActionsCreator {
 
-  getGallery(galery) {
+  getGalleries() {
     dispatcher.dispatch({
-      type : actionTypes.GET_GALLERY
+      type : actionTypes.GET_GALLERIES
     });
-    return webtrip.get('/galleries/' + galery.name)
+    return webtrip.getMedia()
     .then(function(resources) {
+      console.log(resources);
       dispatcher.dispatch({
-        type : actionTypes.GET_GALLERY_COMPLETED,
+        type : actionTypes.GET_GALLERIES_COMPLETED,
         resources : resources,
         visiteDate : galery.visiteDate,
         title: galery.title
@@ -24,9 +25,12 @@ class GalleriesActionsCreator {
     })
     .catch(function() {
       dispatcher.dispatch({
-        type : actionTypes.GET_GALLERY_FAILED
+        type : actionTypes.GET_GALLERIES_FAILED
       });
     });
+  }
+
+  getGallery(galery) {
   }
 }
 

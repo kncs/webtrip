@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var WebpackDevServer = require('webpack-dev-server');
 var configWebpack = require('./webpack.config');
 var server = require('../backend/server');
-var config = require('../config')
+var config = require('../backend/config')
 
 new WebpackDevServer(webpack(configWebpack), {
   publicPath: configWebpack.output.publicPath,

@@ -1,6 +1,6 @@
 var webpack = require('webpack')
 var path = require('path')
-var config = require('../config')
+var config = require('../backend/config')
 
 var __PROD__ = config.env === 'production';
 var __DEV__ = config.env === 'development';

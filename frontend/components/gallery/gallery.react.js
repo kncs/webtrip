@@ -10,7 +10,11 @@ import mockup from './mockup';
 
 import galleriesActionsCreator from '../../actions/galleries-actions-creator.js'
 
-export default class Roadmap extends React.Component {
+export default class Gallery extends React.Component {
+
+  componentDidMount() {
+    galleriesActionsCreator.getGalleries();
+  }
 
   handleClick(gallery) {
     return function(event) {

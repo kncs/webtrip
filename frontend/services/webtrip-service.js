@@ -12,11 +12,11 @@ class WebtripService {
     });
   };
 
-  get(path) {
+  getMedia() {
     var self = this;
     return new Promise(function(resolve, reject) {
       request
-        .get(self._getURL(path))
+        .get(self._getURL('/instagram/media'))
         .end(function (err, res) {
           if (err) return reject(err);
           if (res.error) return reject(res);

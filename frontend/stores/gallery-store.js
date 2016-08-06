@@ -24,19 +24,19 @@ class GalleryStore extends Store {
   __onDispatch(payload) {
     let action = payload;
     switch(action.type) {
-      case actionTypes.GET_GALLERY:
+      case actionTypes.GET_GALLERIES:
         _resources = _resources.clear();
         this.__emitChange();
         break;
 
-      case actionTypes.GET_GALLERY_COMPLETED:
+      case actionTypes.GET_GALLERIES_COMPLETED:
         _resources = Immutable.List(action.resources);
         _title = action.title;
         _visiteDate = action.visiteDate;
         this.__emitChange();
         break;
 
-      case actionTypes.GET_GALLERY_FAILED:
+      case actionTypes.GET_GALLERIES_FAILED:
         _resources = _resources.clear();
         this.__emitChange();
         break;
